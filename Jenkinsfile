@@ -8,6 +8,7 @@ pipeline {
             steps {
 		sh 'mvn test'
 		sh 'mvn --version'
+		slackSend channel: 'montranjenkins', message: 'Job started'
             }
         }
         stage("Build") {
