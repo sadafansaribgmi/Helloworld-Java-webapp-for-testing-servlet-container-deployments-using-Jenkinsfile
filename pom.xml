@@ -27,6 +27,12 @@
                			 <groupId>org.jboss.as.plugins</groupId>
                 		 <artifactId>jboss-as-maven-plugin</artifactId>
                 		 <version>7.9.Final</version>
+				 <configuration>
+                			<host>10.2.0.25</host>
+                			<port>43889</port>
+                			<name>jbossadmin</name>
+                			<password>secure@123</password> 
+         			</configuration>
                        </plugin>
 		</plugins>
 	</build>
