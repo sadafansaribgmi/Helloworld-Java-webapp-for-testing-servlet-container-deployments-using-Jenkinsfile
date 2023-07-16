@@ -8,7 +8,6 @@ pipeline {
             steps {
 		sh 'mvn test'
 		sh 'mvn --version'
-		slackSend channel: 'montranjenkins', message: 'Job started'
             }
         }
         stage("Build") {
@@ -18,8 +17,9 @@ pipeline {
         }
         stage(" Deploy on Test") {
             steps {
-		deploy adapters: [tomcat7(credentialsId: 'tomcat', path: '', url: 'http://10.2.0.32:8080')], contextPath: '/app', war: '**/*.war'
-            }
+              deploy adapters: [tomcat9(credentialsId: 'tomcatserver1', path: '', url: 'http://13.233.138.186:8080')], contextPath: '/app', war: '**/*.war'
+
+	    }
         }
         stage("Deploy on Prod") {
             input{
